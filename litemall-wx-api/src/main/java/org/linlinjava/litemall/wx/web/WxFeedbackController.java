@@ -45,11 +45,11 @@ public class WxFeedbackController {
      */
     @PostMapping("submit")
     @ResponseBody
-    public Object save(@LoginUser Integer userId){
+    public Object save(@LoginUser Integer userId) throws Exception{
         if(userId == null){
             return ResponseUtil.unlogin();
         }
-
+        Thread.sleep(3000);
         LitemallUser user = userService.findById(userId);
         String username = user.getUsername();
         //获取客户端对象

@@ -10,7 +10,7 @@
     </view>
   </picker>
   <view class="fb-body">
-    <textarea class="content" placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在商城上买到什么？请告诉我们..."  bindinput ="contentInput" maxlength="500" auto-focus="true" value="{{content}}"/>
+    <textarea class="content" placeholder="对我们网站、商品、服务，你还有什么建议吗？你还希望在严选上买到什么？请告诉我们..."  bindinput ="contentInput" maxlength="500" auto-focus="true" value="{{content}}"/>
     <view class="text-count">{{contentLength}}/500</view>
   </view>
   <view class="fb-mobile">

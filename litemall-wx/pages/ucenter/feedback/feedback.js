@@ -9,9 +9,9 @@ Page({
   data: {
     array: ['请选择反馈类型', '商品相关', '功能异常', '优化建议', '其他'],
     index: 0,
-    content:'',
-    contentLength:0,
-    mobile:''
+    content: '',
+    contentLength: 0,
+    mobile: ''
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value);
@@ -27,7 +27,7 @@ Page({
     console.log(that.data.mobile);
   },
   contentInput: function (e) {
-   
+
     let that = this;
     this.setData({
       contentLength: e.detail.cursor,
@@ -35,13 +35,13 @@ Page({
     });
     console.log(that.data.content);
   },
-  cleanMobile:function(){
+  cleanMobile: function () {
     let that = this;
 
   },
-  sbmitFeedback : function(e){
+  sbmitFeedback: function (e) {
     let that = this;
-    if (that.data.index == 0){
+    if (that.data.index == 0) {
       util.showErrorToast('请选择反馈类型');
       return false;
     }
@@ -57,7 +57,7 @@ Page({
     }
     wx.showLoading({
       title: '提交中...',
-      mask:true,
+      mask: true,
       success: function () {
 
       }
@@ -65,10 +65,10 @@ Page({
 
     console.log(that.data);
 
-    util.request(api.FeedbackAdd, { mobile: that.data.mobile, index: that.data.index, content: that.data.content},'POST').then(function (res) {
+    util.request(api.FeedbackAdd, { mobile: that.data.mobile, index: that.data.index, content: that.data.content }, 'POST').then(function (res) {
       if (res.errno === 0) {
         console.log(res.data);
-      
+
         wx.hideLoading();
 
         wx.showToast({
@@ -88,7 +88,7 @@ Page({
       } else {
         util.showErrorToast(res.data);
       }
-      
+
     });
   },
   onLoad: function (options) {
